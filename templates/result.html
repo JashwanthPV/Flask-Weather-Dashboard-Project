@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather for {{ weather.city }}</h1>
+        {% if error %}
+            <h2>{{ error }}</h2>
+        {% else %}
+            <p><strong>Temperature:</strong> {{ weather.temp }}°C</p>
+            <p><strong>Humidity:</strong> {{ weather.humidity }}%</p>
+            <p><strong>Description:</strong> {{ weather.description }}</p>
+            <p><strong>Wind Speed:</strong> {{ weather.wind_speed }} m/s</p>
+        {% endif %}
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>
